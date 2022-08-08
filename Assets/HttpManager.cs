@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using TMPro;
 
 public class HttpManager : MonoBehaviour
 {
 
     [SerializeField]
     private string URL;
+
+    private TextMeshPro[] textsMPScores;
+    
     // Start is called before the first frame update
     void Start()
     {
