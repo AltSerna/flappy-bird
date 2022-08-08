@@ -2,22 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using TMPro;
+using UnityEngine.UI;
 
 public class HttpManager : MonoBehaviour
 {
 
     [SerializeField]
     private string URL;
-
-    private TextMeshPro[] textsMPScores;
+    [SerializeField]
+    private Text[] textsMPScores;
+    [SerializeField]
+    private GameObject ScoreCanvas;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void ClickGetScores()
     {
         StartCoroutine(GetScores());
@@ -25,6 +21,7 @@ public class HttpManager : MonoBehaviour
 
     IEnumerator GetScores()
     {
+        ScoreCanvas.SetActive(true);
         string url = URL + "/leaders";
         UnityWebRequest www = UnityWebRequest.Get(url);
 
@@ -38,9 +35,12 @@ public class HttpManager : MonoBehaviour
             //Debug.Log(www.downloadHandler.text);
             Scores resData = JsonUtility.FromJson<Scores>(www.downloadHandler.text);
 
+            int indexScore = 0;
             foreach (ScoreData score in resData.scores)
             {
+                textsMPScores[indexScore].text = score.value.ToString() + " points";
                 Debug.Log(score.userId +" | "+score.value);
+                indexScore++;
             }
         }
         else
@@ -48,7 +48,7 @@ public class HttpManager : MonoBehaviour
             Debug.Log(www.error);
         }
     }
-   
+    
 }
 
 
