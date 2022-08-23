@@ -1696,6 +1696,7 @@ GameObject:
   - component: {fileID: 1521267447}
   - component: {fileID: 1521267446}
   - component: {fileID: 1521267448}
+  - component: {fileID: 1521267449}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1737,7 +1738,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521267445}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e968c4b65d0088c44ae8df8de507ed5d, type: 3}
   m_Name: 
@@ -1750,6 +1751,19 @@ MonoBehaviour:
   - {fileID: 255250767}
   - {fileID: 2012845330}
   ScoreCanvas: {fileID: 2009832877}
+--- !u!114 &1521267449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521267445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c1f840108095248aaecd0a3a3e9e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  URL: https://unitywebrequest-restapi.herokuapp.com
 --- !u!1 &1651017538
 GameObject:
   m_ObjectHideFlags: 0

@@ -173,6 +173,23 @@ public class HttpManager : MonoBehaviour
         string postData = JsonUtility.ToJson(data);
         StartCoroutine(SignUp(postData));
     }
+    
+    private string GetInputData()
+    {
+        AuthData data = new AuthData();
+
+        data.username = GameObject.Find("InputFieldUsuario").GetComponent<InputField>().text;
+        data.password = GameObject.Find("InputFieldContrasena").GetComponent<InputField>().text;
+
+        string postData = JsonUtility.ToJson(data);
+        return postData;
+    }
+    
+    public void ClickLogIn()
+    {
+        string postData = GetInputData();
+        StartCoroutine(LogIn(postData));
+    }
 
     IEnumerator LogIn(string postData)
     {
